@@ -1,0 +1,34 @@
+<% include partials/header %>
+<h1><%= title %> </h1>
+<% if(errors != undefined ){ %>
+<ul>
+<% errors.forEach(function(error){ %>
+<li>
+	<%= error.msg %>
+	</li>  <% })%>
+	</ul>
+
+<%}%>
+<form method="POST" action="/users/add"> 
+	<lable>Task </lable>
+	<br>	
+	<input type="text" name="fname">	
+	<br>
+	<lable>Description </lable>
+	<br>
+	<input type="text" name="lname">
+	<br>
+	<lable>Priority </lable>
+	<br>
+	<input type="text" name="id">
+	<br><br>
+	<input type="submit" value="Submit">
+</form>
+<ul>
+<% users.forEach(function(user){ %>
+<li>
+	<%= user.fname %>
+	<%= user.lname %>
+	<%= user.id %> <a href="#" class="d" data-id="<%= user._id %>">Delete</a></li> <% })%>
+	</ul>
+<% include partials/footer %>
